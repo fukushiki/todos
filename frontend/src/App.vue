@@ -9,6 +9,7 @@
         <ul class="todo-list">
           <li class="todo" v-for="todo in todos" :key="todo.id" :class="{completed: todo.completed}">
             <div class="view">
+              <input class="toggle" type="checkbox" v-model="todo.completed">
               <label>{{ todo.title }}</label>
             </div>
           </li>
@@ -29,7 +30,7 @@ export default {
         {
           id: 0,
           title: "My test todo item",
-          completed: true
+          completed: false
         }
       ],
     }
