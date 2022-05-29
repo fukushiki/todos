@@ -5,11 +5,11 @@
         <h1>todos</h1>
         <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?">
       </header>
-      <section class="main">
+            <section class="main" v-show="todos.length">
         <ul class="todo-list">
-          <li class="todo">
+          <li class="todo" v-for="todo in todos" :key="todo.id" :class="{completed: todo.completed}">
             <div class="view">
-              <label>A todo item</label>
+              <label>{{ todo.title }}</label>
             </div>
           </li>
         </ul>
@@ -23,5 +23,16 @@ import "./assets/css/base.css";
 import "./assets/css/app.css";
 export default {
   name: "app",
+  data(){
+    return {
+      todos: [
+        {
+          id: 0,
+          title: "My test todo item",
+          completed: true
+        }
+      ],
+    }
+  }
 };
 </script>
